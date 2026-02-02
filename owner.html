@@ -2,15 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Owner Only</title>
+  <title>Crafty - Owner</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="owner-page">
+
   <h1>OWNER ONLY</h1>
-  <div id="requests">
-    <!-- All requested pins will be listed here -->
-  </div>
+
+  <div id="requests"></div>
+
   <button onclick="history.back()">Back</button>
+
+  <script>
+    const requestsDiv = document.getElementById("requests");
+    const requests = JSON.parse(localStorage.getItem("pinRequests") || "[]");
+
+    if(requests.length === 0){
+      requestsDiv.textContent = "No pin requests yet!";
+    } else {
+      requests.forEach(r => {
+        const p = document.createElement("p");
+        p.innerHTML = `<strong>${r.date}</strong>: ${r.title} - <a href="${r.url}" target="_blank">View</a>`;
+        requestsDiv.appendChild(p);
+      });
+    }
+  </script>
+
 </body>
 </html>
