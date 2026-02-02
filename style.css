@@ -1,0 +1,54 @@
+/* Global Styles */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #FFC5D3;
+}
+
+/* PASSWORD button at top center */
+.password-btn {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  cursor: default;
+}
+
+/* Floating Plus button at top-right */
+.plus-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: none;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  font-size: 32px;
+  font-weight: bold;
+  cursor: default;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Pinterest-style grid */
+.pin-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 15px;
+  padding: 100px 20px 20px 20px; /* top padding to leave space for buttons */
+}
+
+/* Individual pins */
+.pin {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
