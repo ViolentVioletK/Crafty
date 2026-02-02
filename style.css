@@ -67,3 +67,32 @@ body {
   color: #000;
   box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
+/* Front page specific */
+.welcome-container {
+  text-align: center;
+  margin-top: 25vh;
+}
+
+.welcome-container h1 {
+  font-size: 2.5rem;
+  color: #fff;
+  text-shadow: 2px 2px #ff9fc1;
+}
+
+.come-in-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  border-radius: 20px;
+  text-decoration: none;
+  background-color: #fff;
+  color: #ff66a3;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Scattered illustration styling if needed */
+.scattered-img {
+  pointer-events: none;
+}
