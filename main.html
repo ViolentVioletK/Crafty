@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crafty - Main</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body style="background-color:#FFC5D3;">
+
+  <!-- Plus button -->
+  <button id="plus-btn" class="circle-btn">+</button>
+
+  <!-- Password button -->
+  <button id="password-btn" class="circle-btn">PASSWORD</button>
+
+  <!-- Grid container -->
+  <div id="grid-container">
+    <!-- Pinterest-style squares will appear here -->
+  </div>
+
+  <script>
+    // Plus button click
+    document.getElementById('plus-btn').addEventListener('click', function() {
+      alert('Request to add a pin sent to the owner!');
+      // Here you can later add code to show the grid square
+    });
+
+    // Password button click
+    document.getElementById('password-btn').addEventListener('click', function() {
+      let pin = prompt("Enter owner PIN:");
+      if(pin === "PFUDOR"){
+        window.location.href = "owner.html"; // redirect to owner page
+      } else {
+        alert("WRONG PIN TRY AGAIN");
+      }
+    });
+  </script>
+</body>
+</html>
