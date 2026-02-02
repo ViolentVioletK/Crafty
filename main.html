@@ -2,38 +2,52 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Crafty - Main</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body style="background-color:#FFC5D3;">
+<body class="main-page">
 
-  <!-- Plus button -->
+  <!-- Plus Button top-right -->
   <button id="plus-btn" class="circle-btn">+</button>
 
-  <!-- Password button -->
-  <button id="password-btn" class="circle-btn">PASSWORD</button>
+  <!-- Password Button -->
+  <button id="password-btn" class="password-btn">PASSWORD</button>
 
-  <!-- Grid container -->
-  <div id="grid-container">
-    <!-- Pinterest-style squares will appear here -->
-  </div>
+  <!-- Pinterest-style container -->
+  <div id="pin-container" class="pin-container"></div>
 
   <script>
-    // Plus button click
+    // Plus button functionality
     document.getElementById('plus-btn').addEventListener('click', function() {
-      alert('Request to add a pin sent to the owner!');
-      // Here you can later add code to show the grid square
+      const title = prompt("Enter a title for your pin:");
+      const url = prompt("Enter image/video URL:");
+      if(title && url){
+        // Save to localStorage (demo)
+        let requests = JSON.parse(localStorage.getItem("pinRequests") || "[]");
+        requests.push({title, url, date: new Date().toLocaleString()});
+        localStorage.setItem("pinRequests", JSON.stringify(requests));
+        alert("Request sent! Owner will review it.");
+      }
     });
 
-    // Password button click
+    // Password button functionality
     document.getElementById('password-btn').addEventListener('click', function() {
-      let pin = prompt("Enter owner PIN:");
-      if(pin === "PFUDOR"){
-        window.location.href = "owner.html"; // redirect to owner page
+      const pin = prompt("Enter owner PIN:");
+      if(pin === "PFUDOR") {
+        window.location.href = "owner.html";
       } else {
-        alert("WRONG PIN TRY AGAIN");
+        alert("WRONG PIN, TRY AGAIN");
       }
+    });
+
+    // Load approved pins (for demo, we’ll show all requests)
+    const container = document.getElementById('pin-container');
+    const pins = JSON.parse(localStorage.getItem("pinRequests") || "[]");
+    pins.forEach(pin => {
+      const div = document.createElement("div");
+      div.className = "pin";
+      div.innerHTML = `<img src="${pin.url}" alt="${pin.title}"><p>${pin.title}</p>`;
+      container.appendChild(div);
     });
   </script>
 </body>
